@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 
-# 达到运算目的 但是 时间复杂度 为O（n平方）, LeetCode大数组时耗时 > 1min
+# 达到运算目的 但是 时间复杂度 为O(n^2), LeetCode大数组时耗时 > 1min
 def MaxAres(height):
     if height == [] or len(height) < 3:
         return 0
@@ -16,7 +16,6 @@ def MaxAres(height):
     return sum
 
 
-# 逻辑严谨 但是速度欠佳
 def maxArea(height):
     left, right = 0, len(height) - 1
     maxAres = 0
@@ -30,7 +29,7 @@ def maxArea(height):
     return maxAres
 
 
-# 相比于前一个逻辑不太严谨，但是判断很少 而且很快算法速度较快 此处一切为了速度（减少了一部分逻辑性）
+
 def maxA(height):
     left, right = 0, len(height) - 1
     volume = (right - left) * min(height[left], height[right])

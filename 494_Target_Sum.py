@@ -17,7 +17,7 @@ class Solution:
 #             dfs(nums, depth + 1, sums + nums[depth], S)
 #             dfs(nums, depth - 1, sums - nums[depth], S)
             
-#         dfs(nums, depth, sums, S)
+#         dfs(nums, 0, 0, S)
 #         return self.__count
 
         '''

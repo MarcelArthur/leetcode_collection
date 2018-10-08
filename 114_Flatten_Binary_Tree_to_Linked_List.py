@@ -1,3 +1,7 @@
+'''
+一刷
+'''
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -29,4 +33,60 @@ class Solution:
         while root.right:
             root = root.right
         root.right = right_node
-    
+
+'''
+二刷
+'''
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    self.prev = None
+    def flatten(self, root):
+        """
+        :type root: TreeNode
+        :rtype: void Do not return anything, modify root in-place instead.
+        """
+        # self.left_to_right(root)
+        
+        
+        '''
+        DFS
+        Solution 1:
+        从根节点向下拆解二叉树为右子树
+        AC 38% 
+        '''
+#     def left_to_right(self, root):
+#         if not root:
+#             return 
+        
+#         if root.left:
+#             p = root.right
+#             root.right = root.left
+#             root.left = None
+#             c = root.right
+#             while c.right:
+#                 c = c.right
+#             c.right = p
+#         self.left_to_right(root.right)
+        
+        '''
+        DFS
+        Solution 1:
+        从右子树-左子树-根节点拼接右子树结构
+        效率更高 = =
+        AC 38% ..
+        '''
+        if root == None:
+            return 
+        self.flatten(root.right)
+        self.flatten(root.left)
+        root.right = self.prev
+        root.left = None
+        self.prev = root

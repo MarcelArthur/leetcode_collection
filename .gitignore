@@ -1,0 +1,9 @@
+*~
+*#*
+.DS*
+*.pyc
+*.pyd
+*.egg
+build/
+dist/
+.idea/

@@ -1,6 +1,6 @@
 # leetcode_collection
 
-刷题进度(179/1032)
+刷题进度(183/1032)
 
 补充部分解题记录
 
@@ -14,7 +14,7 @@
 [837 New 21 Game][6] | Python [详解](https://marcelarthur.xyz/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%89%E9%A2%98pickone-837-New-21-Game/#more)
 [39 Combination Sum][7] | Python [详解](https://marcelarthur.xyz/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%89%E9%A2%98pickone-39-Combination-Sum/)
 [826 Most Profit Assigning Work][8] | Python [详解](https://marcelarthur.xyz/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%89%E9%A2%98pickone-826-Most-Profit-Assigning-Work/)
-
+[125 Valid Palindrome][9] | Python [详解]()
 
 
  
@@ -39,3 +39,4 @@
 [6]: ./837_New_21_Game.py
 [7]: ./39_Combination_Sum.py
 [8]: ./826_Most_Profit_Assigning_Work.py
+[9]: ./125_Valid_Palindrome.py

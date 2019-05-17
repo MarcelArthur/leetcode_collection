@@ -1,8 +1,9 @@
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
 
 class Solution:
     '''
@@ -57,23 +58,23 @@ class Solution:
             h2.next = self.merge(h1, h2.next)
             return h2
         
-    def sortList(self, head):
+    def sort_list_solution(self, head):
         if not head or not head.next:
             return head
-        
+
         p1, p2, pre = head, head, head
-        
+
         while p2 and p2.next:
             pre = p1
             p1 = p1.next
             p2 = p2.next.next
-        
+
         # change the bottom
         pre.next = None
-        
+
         h1 = self.sortList(head)
         h2 = self.sortList(p1)
-        
+
         return self.merge(h1, h2)
 
     '''

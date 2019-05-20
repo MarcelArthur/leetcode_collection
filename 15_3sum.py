@@ -1,108 +1,73 @@
-# -*- coding:utf-8 -*-
+
+# Solution 1: 利用组合特性来处理
+import itertools
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        counter = collections.Counter(nums)
+        numbers = counter.keys()
 
 
-# brute force 暴力破解结果 时间复杂度为O(n三次方)
-def threeSum(nums):
-    """
-    :type nums: List[int]
-    :rtype: List[List[int]]
-    """
-    G = []
-    Lk = set()
-    L = []
-    if sum(nums) == 0:
-        return nums
-    for i in nums:
-        for j in nums:
-            for k in nums:
-                if i + j + k == 0:
-                    if i not in Lk:    # 通过set集合排重 保证i,j,k不是同时出现在列表中 (起码有一个为新值 得到排重后的结果 组合为列表 返回到外部)
-                        Lk.add(i)
-                    if j not in Lk:
-                        Lk.add(j)
-                    if k not in Lk:
-                        Lk.add(k)
-                    else:
-                        continue
-                    D = [i, j, k]
-                    G.append(D)
-    return G
+        ret = set()
+        comb = itertools.combinations(numbers, 2)
+        for c in comb:
+            fir, sec, check = c[0], c[1], - c[0] - c[1]
+            if counter.get(check, None):
+                if check != fir and check != sec:
+                    ret.add(tuple(sorted([fir, sec, check])))
+                else:
+                    if counter[check] > 1:
+                        ret.add(tuple(sorted([fir, sec, check])))
 
-
-KG = []
-def twosum(nums, i, target):
-    left, right = i + 1, len(nums) - 2
-    while left < right:
-        if nums[left] + nums[right] == target:
-            QT = [nums[i], nums[left], nums[right]]
-            KG.append(QT)
-            if left < right and nums[left] == nums[left + 1]:
-                left += 1
-            if right < right and nums[right] == nums[right - 1]:
-                right -= 1
-            left += 1
-            right -= 1
-        elif nums[left] + nums[right] + target < 0:
-            left += 1
-        else:
-            right -= 1
+        if counter.get(0, 0) > 2:
+            ret.add((0, 0, 0))
+        return [list(t) for t in ret]
 
 
 
-# 将问题分解为2sum的问题 降低时间复杂度 (n平方) 空间为O(1)
-def threesum(nums, K):
-    for i in range(1, len(nums) - 2):
-        if i > 0 and nums[i] == nums[i - 1]:
-            continue
-        twosum(nums, i, 0 - nums[i])
-    print()
+# Solution 2:
+# 时间最快，空间复杂度最大
+class Solution:
+    def threeSum(self, nums: List[int] -> List[List[int]]):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        ana = set()
+        plus = sorted([i for i in nums if i > 0])
+        plus_c = set(plus)
+        zeros = [i for i in nums if i == 0]
+        minus = sorted([i for i in nums if i < 0])
+        minus_c = set(minus)
 
+        # zero zero zero
+        if len(zeros) > 2:
+            ana.add((0, 0, 0))
 
+        # minus minus plus
+        n = len(minus)
+        if len(zero) > 0:
+            for n in minus:
+                if -n in plus_c:
+                    ana.add((n, 0, -n))
+        
+        # minus minus plus
+        n = len(minus)
+        for i in range(n):
+            for j in range(i+1, n):
+                diff = -(minus[i] + minus[j])
+                if diff in plus_c:
+                    ana.add((minus[i], minus[j], diff))
 
-class Kpoo(object):
-    def threesum(self, m):
-        print(m)
+        # plus plus minus
+        n = len(plus)
+        for i in range(n):
+            for j in range(i+1, n):
+                diff = -(plus[i] + plus[j])
+                if diff in minus_c:
+                    ana.add((plus[i], plus[j], diff))
 
-
-def myreversed(L):
-    return [x for x in L[::-1]]
-
-
-def myreversed_02(L):
-    L2 = []
-    for i in L1[-1::-1]:
-        L2.append(i)
-    return L2
-
-
-if __name__ == '__main__':
-    L = [-1, 0, 1, -2, 4, 2]
-    G = threeSum(L)
-    KG = []
-    L.sort()
-
-    for i in range(len(L) - 2):
-        if i > 0 and L[i] == L[i - 1]:
-            continue
-        left, right = i + 1, len(L) - 1
-        target = L[i]
-        while left < right:
-            if L[left] + L[right] + target == 0:
-                QT = [L[i], L[left], L[right]]
-                KG.append(QT)
-                while left < right and L[left] == L[left + 1]:
-                    left += 1
-                while right < right and L[right] == L[right - 1]:
-                    right -= 1
-                left += 1
-                right -= 1
-            elif L[left] + L[right] + target < 0:
-                left += 1
-            else:
-                right -= 1
-    print(KG)
-    print(G)
-    L1 = [1, 2, 3, 4]
-    L2 = myreversed(L1)
-    L3 = myreversed_02(L1)
-    print(L2, L1, L3)
+        return [list(t) for t in ana]

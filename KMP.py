@@ -19,9 +19,6 @@ def kmp(str):
             k = next[k]
     print(next)
 
-if __name__ == '__main__':
-    kmp('aaaaaaaadtesadtesadtes')
-
 
 
 

@@ -18,4 +18,3 @@ class Solution:
             c *= 10
         nums, d = (c/9) + (n-1)/w, (n-1)%w   # c/9 equals 10**w, means the base number
         return int(str(nums)[d])
-        

@@ -18,11 +18,7 @@
 [128 Longest Consecutive Sequence][10] | Python [题目地址](https://leetcode.com/problems/longest-consecutive-sequence)
 [15 3Sum][11] | Python [题目地址](https://leetcode.com/problems/3sum/)
 [295 Find Median from Data Stream][12] | Python [题目地址](https://leetcode.com/problems/find-median-from-data-stream)
-
-
- 
-
-  
+[884 Uncommon Words from Two Sentences][13] | Python [题目地址](https://leetcode.com/problems/uncommon-words-from-two-sentences/)
 
 
 
@@ -46,3 +42,4 @@
 [10]: ./128_Longest_Consecutive_Sequence.py
 [11]: ./15_3sum.py
 [12]: ./295_Find_Median_from_Data_Stream.py
+[13]: ./884_Uncommon_Words_from_Two_Sentences.py

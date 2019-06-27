@@ -47,3 +47,4 @@ class Solution:
             else:
                 j = dp[j]
         return all((dp[n], dp[n] % (n - dp[n]) == 0))
+

@@ -16,7 +16,6 @@ class Solution:
     def diStringMatch(self, S: str) -> List[int]:
         if not S:
             return []
-        # r = collections.deque([x for x in range(len(S) + 1)])
         res = []
         left = 0
         right = len(S) 

@@ -13,3 +13,9 @@ class Solution(object):
             if v1 != v2:
                 res += 1
         return res
+
+class Solution(object):
+    def heightChecker(self, heights):
+        A = sorted(heights)
+        res = [i for i in map(lambda x, y: x - y, heights, A) if i != 0]
+        return len(res)

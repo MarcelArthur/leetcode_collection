@@ -20,3 +20,11 @@ class Solution:
             mar, mir = max(nums[i], nums[i] * mar, nums[i] * mir), min(nums[i], nums[i] * mar, nums[i] * mir)
             MAX = max(MAX, mar)
         return MAX
+
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        B = A[::-1]
+        for i in range(1, len(nums)):
+            A[i] *= A[i-1] or 1
+            B[i] *= B[i-1] or 1
+        return max(A + B)
